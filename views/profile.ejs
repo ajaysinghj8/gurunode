@@ -1,0 +1,136 @@
+<% include header %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/guruProfileStyle.css" />
+      		<!-- Middle Start -->
+            	<div id="main-middle">
+                    <div id="middle-inner">
+                    
+						<div id="middle-content">
+                        	<div id="middle-content-detail">
+                            	<div class="detail-image">
+                                
+                                     <%if(Guru.Picture)  {%>
+                                        <img class="image" src="<%=Guru.Picture%>" />
+                                      <% } else { %>  
+                                    	<img class="image" src="/images/user.jpg" />
+                                        <%}%>
+                                
+                                </div>
+                                <div class="detail-info">
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>Name :</p></div>
+                                        	<div class="info-label-dynamic"><p><%=Guru.Name%></p></div>                                            
+                                        </div>
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>School :</div>
+                                        	<div class="info-label-dynamic"><p><%=Guru.College%></p></div>                                            
+                                        
+                                        </div>
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>Domain :</p></div>
+                                        	<div class="info-label-dynamic"><p><%=Guru.Department%></p></div>
+                                        </div>
+                                </div>
+                                
+                                <div class="detail-info">
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>Designation :</p></div>
+                                        	<div class="info-label-dynamic"><p><%=Guru.Designation%></p></div>                                            
+                                        </div>
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>Qualification :</div>
+                                        	<div class="info-label-dynamic"><p>text from data base</p></div>                                            
+                                        
+                                        </div>
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>Total Votes :</p></div>
+                                        	<div class="info-label-dynamic"><p><%=Guru.Voters%></p></div>                                        
+                                        </div>                                
+                                </div>
+                                
+                            <div class="btn-row">
+                            	<div class="rate-btn-div">
+                                	<a href="/rate/<%=Guru._id%>"><button class="btn-each">Rate Guru</button> </a>
+                                </div>
+                              	<div class="report-btn-div">
+                                	<a href="/report/<%=Guru._id%>"><button class="btn-each">Detailed Report</button></a>
+                                </div>
+                            </div>
+                            
+		      		<!-- Comment Section Starts -->
+                    	<div id="div-comment-main">
+       		      		<!-- Comment Post Section Starts -->
+                        <form method="POST" action="/profile/comment/<%=Guru._id%>">
+                        	<div id="div-comment-write">
+                            	<div id="div-text-area">
+                                	<textarea name="commentText"class="min" placeholder="write your views about Guru" ></textarea>
+                                </div>
+                                <div id="div-btn-post">
+                                	<button type="submit" class="btn-post">POST</button>
+                                </div>
+                            </div>
+       		      		</form>
+                        <!-- Comment Post Section Ends -->
+       		      		<!-- Comment View  Section (like / Dislike) Starts -->
+                        	<div id="div-comment-view">
+                            	<div id="div-comment-view-inner">
+                                <!-- Comment -->
+                                	<% Comments.forEach(function(comment){%>
+                                    <div class="comment-main">
+                                    	<div class="comment-top-row">
+                                        	<div class="comment-top-row-inner">
+                                            	<div class="label-name">
+                                                	<%=comment.guruid%>
+                                                </div>
+                                                <div class="label-reg">
+                                                	111118887
+                                                </div>
+                                            </div>
+                                            <div class="comment-middle-row">
+                                            	<div class="comment-middle-row-inner-text">
+                                                 <%=comment.text%>
+                             
+                            
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="comment-bottom-row">
+                                            	<div class="comment-bottom-row-inner">
+                                                	<div class="comment-bottom-btns">
+                                                    	<div class="div-comment-btns-each">
+                                                            <div class="like-dislike"><a href="/comment/<%=comment._id%>/dislike">Dislike</a></div>
+                                                            <div class="like-dislike-count">6</div>
+                                                            <div class="like-dislike-icon"><img src="/images/thumbs-down.png" /></div>
+                                                        </div>
+                                                    	<div class="div-comment-btns-each">
+                                                        <a href="#">Report abuse</a>
+                                                        </div>                                                        
+                                                    	<div class="div-comment-btns-each">
+                                                            <div class="like-dislike"><a href="/comment/<%=comment._id%>/like">Like</a></div>
+                                                            <div class="like-dislike-count">6</div>
+                                                            <div class="like-dislike-icon"><img src="/images/thumbs-up.png" /></div>
+                                                        </div>                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    	
+                                    </div>
+                                    <% }); %>
+                                <!-- Comment -->
+                                    
+                                </div>
+                            </div>
+       		      		<!-- Comment View  Section (like / Dislike) Ends -->
+                        
+                        </div>
+		      		<!-- Comment Section Ends -->                    
+                            	
+                            </div>
+                        </div> 
+                                              
+              		</div>
+                </div>
+      		<!-- Middle Ends -->
+
+<% include footer %>
+            

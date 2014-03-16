@@ -1,0 +1,53 @@
+<form action="/admin/guru/add" method="POST">
+<h1> Add Guru </h1>
+<p> Name : <input name="name" type="text" value=<%-req.body.name %> /></p>
+<p> College : <input name="college" type="text" value=<%-req.body.college%>/></p>
+<p> Designation : <input name="designation" type="text" value=<%-req.body.designation%>/> </p>
+<p> Department : <input name="department" type="text" value=<%-req.body.department%>/></p>
+<p> Specialization : <input name="specilization" type="text" value=<%-req.body.specilization%>/></p>
+<p> Picture : </p>
+<p> <input type="submit" value="Save" /></p>
+</form> 
+
+
+// development only
+if ('development' == app.get('env')) {
+  app.use(express.errorHandler());
+}
+
+//index
+var routes = require('./routes');
+app.get('/', routes.index); 
+
+// profile
+app.get('/Profile',function  (req,res) {
+	res.render('profile');
+});
+
+//search
+app.get('/search',function  (req,res) {
+	res.render('search');
+});
+//rating
+app.get('/rating',function   (req,res) {
+	res.render('rating');
+});
+//report
+app.get('/report',function   (req,res) {
+	res.render('report');
+});
+
+//user 
+
+app.post('/register',function   (req,res) {
+	var b = req.body;
+     //Saving the user reg and password
+     res.redirect('/');
+
+});
+
+app.post('/login',function   (req,res) {
+  var b = req.body;
+    //checking the registration,password from db
+   res.redirect('/');
+});

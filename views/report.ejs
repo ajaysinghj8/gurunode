@@ -1,0 +1,54 @@
+<% include header %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/reportCardStyle.css" />
+      		<!-- Middle Start -->
+            	<div id="main-middle">
+                    <div id="middle-inner">
+                    
+						<div id="middle-content">
+                        	<div id="middle-content-detail">
+                            	<div class="detail-image">
+                                    	<img class="image" src="<%=Guru.Picture%>" />
+                                  </div>
+                                <div class="detail-info">
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>Name :</p></div>
+                                        	<div class="info-label-dynamic"><p><%=Guru.Name%></p></div>                                            
+                                        </div>
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>Qualification :</div>
+                                        	<div class="info-label-dynamic"><p></p></div>                                            
+                                        
+                                        </div>
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>Overall Rate :</p></div>
+                                        	<div class="info-label-dynamic"><p><%=Guru.Rating%></p></div>
+                                        </div>
+                                </div>
+                                
+                                <div class="detail-info">
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>Department :</p></div>
+                                        	<div class="info-label-dynamic"><p><%=Guru.Department%></p></div>                                            
+                                        </div>
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>School :</div>
+                                        	<div class="info-label-dynamic"><p><%=Guru.College%></p></div>                                            
+                                        
+                                        </div>
+                                		<div class="detail-info-row">
+                                        	<div class="info-label-static"><p>Total Votes :</p></div>
+                                        	<div class="info-label-dynamic"><p><%=Guru.Voters%></p></div>                                        
+                                        </div>                                
+                                </div>
+                                
+                            </div>
+                            <div id="middle-content-graph">
+                            	<img src="/images/graph.png" />
+                            </div>
+                        </div> 
+                                              
+              		</div>
+                </div>
+      		<!-- Middle Ends -->
+<% include footer %>
+ 

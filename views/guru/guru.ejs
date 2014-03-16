@@ -1,0 +1,13 @@
+
+<h1>Guru Info</h1>
+<form method="POST">
+ <a href="/admin/guru/<%=Guru._id %>/edit"> Edit</a>
+    <p> Name : <%=Guru.Name%></p>
+	<p> College : <%=Guru.College%></p>
+	<p> Designation : <%=Guru.Designation%> </p>
+	<p> Department : <%=Guru.Department%></p>
+	<p> Specialization : <%=Guru.Specialization%></p>
+
+    <input type="hidden" name="_method" value="Delete" >
+    <input type="submit" value="Delete">
+<form>

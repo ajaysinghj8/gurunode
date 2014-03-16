@@ -1,0 +1,10 @@
+<h1> User Info</h1>
+
+<form method="POST">
+ <a href="/admin/user/<%=User._id %>/edit"> Edit</a>
+    <p>Name : <%=User.displayName%></p>
+    <p>Reg No : <%=User.regno%></p>
+    
+    <input type="hidden" name="_method" value="Delete" >
+    <input type="submit" value="Delete">
+<form>

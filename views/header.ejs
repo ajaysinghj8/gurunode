@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="/javascripts/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/defaultStyle.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Rate Your Guru</title>
+
+<script>
+	$(document).ready(function()
+	{
+		$(".login").click(function()
+		{
+			$("#login-popup").fadeIn(500);
+		});
+		
+		$(".popup-cross").click(function()
+		{
+			$("#login-popup").fadeOut(500);
+		});
+		
+		$(".signup").click(function()
+		{
+			$("#signup-popup").fadeIn(500);
+		});
+		
+		$(".popup-cross").click(function()
+		{
+			$("#signup-popup").fadeOut(500);
+		});
+		
+	});
+</script>
+
+</head>
+
+<body>
+	<!-- Main Container Start -->
+	<div id="main-container">
+    		<!-- Header Start -->
+            	<div id="main-header">
+                	<div id="header-inner">
+                    	<div id="header-logo">
+                        	<a href="#"><img src="/images/logo.png" alt="logo" /></a>
+                        </div>
+                        <div class="login-signup">
+                        
+                        	<% if (req.session && req.session.auth && req.session.UserId && (req.session.User.approved || req.session.admin))	{%>
+						         <a class="login" href="/users">Hi! <%-req.session.User.displayName%></a>
+                                 <a class="login" href="/logout">Logout</a>
+						 <%}else{%>
+				                 <a class="signup">Register</a>
+                                 <a class="login">Log in</a>
+							   <%}%>
+                             <a class="home" href="/">Home</a>
+                        </div>                                        
+                    </div>
+                </div>
+			<!-- Header Ends -->

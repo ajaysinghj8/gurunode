@@ -1,0 +1,8 @@
+<h1>All Guru</h1>
+
+<h3><a href="/admin/guru/add">Add a new Guru</a></h3>
+ <ul>
+<% Guru.forEach(function (g) { %>
+    <li><a href="/admin/guru/<%=g._id %>"> <%= g.Name %></a></li>
+<% }); %>
+</ul>

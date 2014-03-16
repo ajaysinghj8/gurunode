@@ -1,0 +1,137 @@
+<% include header%>
+<link rel="stylesheet" type="text/css" href="/stylesheets/defaultStyle.css" />
+ <script>
+	$(document).ready(function()
+	{
+		$(".login").click(function()
+		{
+			$("#login-popup").fadeIn(500);
+		});
+		
+		$(".popup-cross").click(function()
+		{
+			$("#login-popup").fadeOut(500);
+		});
+		
+		$(".signup").click(function()
+		{
+			$("#signup-popup").fadeIn(500);
+		});
+		
+		$(".popup-cross").click(function()
+		{
+			$("#signup-popup").fadeOut(500);
+		});
+		
+	});
+</script>
+<script>
+	var interval = setInterval(slider,2000);
+	var a=0;
+	
+	function slider()
+	{
+		a++;
+		if(a==1)
+		{
+			$("#c").fadeOut(2000);
+			$("#a").fadeIn(2000);
+			$("#b").hide(2000);
+			$("#c").hide(2000);
+		}
+		else if(a==2)
+		{
+			$("#a").fadeOut(2000);
+			$("#b").fadeIn(2000);
+			$("#c").hide(2000);
+		}
+		else if(a==3)
+		{
+			$("#a").hide(2000);
+			$("#b").fadeOut(2000);
+			$("#c").fadeIn(2000);
+			a=0;			
+		}
+		else
+		{
+		}
+	}
+
+</script>
+
+ 
+      		<!-- Middle Start -->
+            	<div id="main-middle">
+         			
+                    <div id="middle-inner">
+                    	
+                        <div id="div-slider">
+                        	<div id="slider">
+                            	<img src="/images/slide/1.png" id="a" />
+                                <img src="/images/slide/2.png" id="b" />
+                                <img src="/images/slide/3.png" id="c" />
+                            </div>
+                    	</div>
+                     	<div id="middle-search">
+                           	<div id="middle-search-inner">
+                        	    <input class="search-box" type="text" placeholder="search" />
+                            	<a href="#"><div class="search-icon"><img src="/images/search.png" alt="search" /></div></a>
+                      		</div>
+                  		</div>
+                        
+                        <div id="random-img-main">
+                        	<% Guru.forEach(function(g) { %>
+                           <a href="/profile/<%=g._id%>">
+                            <div class="random-each">
+                            	<div class="random-image"> <img class="random-image" src="<%=g.Picture%>">
+                                </div>
+                                <div class="random-detail">
+                                	<div class="random-label">
+                                    	<label><%=g.Name%></label>
+                                    </div>
+                                    <div class="random-label">
+                                    	<label><%=g.Designation%></label>
+                                    </div>
+                                    <div class="random-label">
+                                    	<label><%=g.Department%></label>
+                                    </div>
+                                </div>	
+                            </div>
+                           </a>
+                            <%  }); %>
+                        </div>
+                        
+                        <div id="bottom-content-main">
+                        	<div class=" bottom-content-inner">
+                            	<div class="bottom-content-heading">
+                                	<p>Recents Comments</p>
+                                </div>
+                            	<div class="bottom-content">
+                                	<p></p>
+                                </div>
+                                
+                            </div>
+                        	<div class=" bottom-content-inner">
+                            	<div class="bottom-content-heading">
+                                	<p>Top 10 Guru</p>
+                                </div>
+                            	<div class="bottom-content">
+                                </div>
+                            
+                            </div>
+                        	<div class=" bottom-content-inner">
+                            	<div class="bottom-content-heading">
+                                	<p>Top 10 Voters</p>
+                                </div>
+                            	<div class="bottom-content">
+                                	<p></p>
+                                </div>
+                            
+                            </div>
+                        </div>
+                       
+                        
+              		</div>
+                </div>
+      		<!-- Middle Ends -->
+<% include footer %>             

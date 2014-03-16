@@ -1,0 +1,8 @@
+<h1>All Users</h1>
+ 
+ <h3><a href="/admin/user/add">Add User</a></h3>
+ <ul>
+<% Users.forEach(function (user) { %>
+    <li><a href="/admin/user/<%=user._id %>" > <%= user.displayName %></li></a>
+<% }); %>
+</ul>

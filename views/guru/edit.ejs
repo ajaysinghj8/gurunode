@@ -1,0 +1,14 @@
+<h1> Editing Guru</h1>
+<form method="POST" action="/admin/guru/<%=Guru._id%>">
+
+<p> Name : <input name="name" type="text" value="<%=Guru.Name%>"   /></p>
+<p> College : <input name="college" type="text" value="<%=Guru.College%>" /></p>
+<p> Designation : <input name="designation" type="text" value="<%=Guru.Designation%>" /> </p>
+<p> Department : <input name="department" type="text" value="<%=Guru.Department%>" /></p>
+<p> Specialization : <input name="specialization" type="text" value="<%=Guru.Specialization%>" /></p>
+<p> Picture :  <input name="Picture" type="text" value="<%=Guru.Picture%>" />	 </p>
+<p>    <input type="hidden" name="_method" value="PUT" >
+       <input type="submit" value="Update">
+
+</form> 
+ 
