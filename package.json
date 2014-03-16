@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "main": "app.js",
-    "start": "node app.js"
+    "start": "node test.js"
   },
   "dependencies": {
-    "express": "3.4.8",
+    "express": "^3.4.8",
     "ejs": "*",
-    "oauth":"*",
+    "oauth": "*",
     "mongodb": "*",
-    "mongoose":""    
+    "mongoose": "",
+    "logfmt": "^1.0.0-pre"
   }
 }
