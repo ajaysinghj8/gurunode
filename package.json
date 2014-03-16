@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "main": "app.js",
-    "start": "node test.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "^3.4.8",

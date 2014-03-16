@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/ratemyguru');
+mongoose.connect('mongodb://un7dc6e19lae6age:94e83b20eed64b6581d1c89b4ef762af@bvisf9dkf0h3ukn9.mongo.clvrcld.net:27017/ bvisf9dkf0h3ukn9');
 
 var Schema = mongoose.Schema
   , ObjectId = Schema.ObjectId;

@@ -39,8 +39,8 @@ app.configure(function   ( ) {
 
 
 //database mongodb
-
-var dbUrl = 'mongodb://@127.0.0.1:27017/guru';
+//mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
+var dbUrl = 'mongodb://un7dc6e19lae6age:94e83b20eed64b6581d1c89b4ef762af@bvisf9dkf0h3ukn9.mongo.clvrcld.net:27017/ bvisf9dkf0h3ukn9';
 var mongoose = require('mongoose');
 mongoose.connect(dbUrl);
 /*var connection = mongoose.createConnection(dbUrl);
