@@ -4,7 +4,6 @@ var express = require('express'),
     oauth = require('oauth')
     querystring= require('querystring'),
     routes = require('./routes');
-
 var app = express();
 
 // all environments
@@ -36,7 +35,6 @@ app.configure(function   ( ) {
       app.use(app.router);
 
 });
-
 
 //database mongodb
 //mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
@@ -77,7 +75,7 @@ app.get('/rate/:id',db,routes.Rate.show);
 app.get('/report/:id',db,routes.Report.show);
 app.post('/rate:/id',db,routes.Rate.updates);
 //login System
-    app.post('/register', db, routes.users.add);
+    app.post('/register', db, routes.Users.add);
     app.post('/login', db,routes.Accounts.login);
     app.get('/logout', routes.Accounts.logout);
     app.get('/users',function   (req,res) {
@@ -119,6 +117,7 @@ app.post('/rate:/id',db,routes.Rate.updates);
              else res.send(docs)
             });
           });
+           app.get('/admin/user',db,routes.Users.showall);
           app.get('/admin/user/:id',function  (req,res) {
             models.User.findOne({_id : req.params.id},function   (err,doc) {
               if(err) res.send("Error single user");
@@ -131,12 +130,12 @@ app.post('/rate:/id',db,routes.Rate.updates);
                 else res.render("users/edit",{User: doc});
              });
           });
-          app.put('/admin/user/:id/edit',function   ( req,res){
-            res.send("Updated");
-          });
+          app.put('/admin/user/:id/edit',db,routes.Users.updates);
+
           app.del('/admin/user/:id',function   ( req,res){
             res.send("User Deleted");
           });
+
 //user }
 
 //server 

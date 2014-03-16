@@ -1,4 +1,4 @@
-exports.users = require('./users');
+exports.Users = require('./users');
 exports.Accounts = require('./Accounts');
 exports.Guru = require('./guru');
 exports.Home = require('./home');

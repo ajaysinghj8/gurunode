@@ -13,16 +13,28 @@ exports.add = function(req, res, next) {
     res.json("User Created Successfully. "+ doc );
   });
 };
+ exports.showall =function   (req,res,next) {
+      req.db.User.find({},function   (err,docs) {
+             if (err) res.send(err);
+             else res.render('users/index',{Users : docs});
+           });
+    };
 
-
-
-
-
-
-
-
-
-
+exports.updates = function   ( req,res,next) {
+    var b = req.body;
+    req.db.User.findByIdAndUpdate(req.params.id,{ 
+                                       displayName: b.name
+                                      ,  regno : b.regno                    
+                                      ,  email: b.email                                      
+                                      ,  image: b.image
+                                      ,  updated: Date.now
+                                       
+},{new : true},   function   (err,doc) {
+       if(err) res.send("error updating user");
+       else res.send("user Updated" + doc);
+    });
+ };
+ 
 
 
 
