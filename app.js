@@ -52,10 +52,7 @@ function db (req, res, next) {
     User : models.User,
     Comments : models.Comments,
     Guru : models.Guru
-   // Comments: connection.model('Comments', models.Comments, 'Comments'),
-    //User : connection.model('User',models.UserSchema)
-   //, Guru : connection.model('Guru',models.Guru,'Guru')
-  };
+   };
   return next();
 }
 
@@ -70,7 +67,7 @@ app.get('/',db,routes.Home.main);
 app.get('/profile/:id',db,routes.Profile.show);
 app.post('/profile/comment/:id/like',db,routes.Profile.like);
 app.post('/profile/comment/:id/dislike',db,routes.Profile.dislike);
-app.post('/profile/comment/:id',db,routes.Profile.comments);
+app.post('/profile/comment/:id',checkUser,db,routes.Profile.comments);
 app.get('/rate/:id',db,routes.Rate.show);
 app.get('/report/:id',db,routes.Report.show);
 app.post('/rate:/id',db,routes.Rate.updates);
@@ -89,23 +86,32 @@ app.post('/rate:/id',db,routes.Rate.updates);
 
 //Admin Work 
     //main {
-      app.get('/admin',function   ( req,res) {  res.render('admin/index');  });
+      app.get('/admin',checkAdmin,function   ( req,res) {  res.render('admin/index');  });
     //main} 
 
-
 //Guru {
-        app.get('/admin/guru',db,routes.Guru.showall);
-        app.get('/admin/guru/add', function (req,res) {  res.render('guru/new');   });
-        app.post('/admin/guru/:id',db,routes.Guru.add);
-        app.get('/admin/guru/:id',db,routes.Guru.show );
-        app.get('/admin/guru/:id/edit',db,routes.Guru.edit);
-        app.put('/admin/guru/:id',db,routes.Guru.updates);
-        app.del('/admin/guru/:id',db,routes.Guru.deletes);
+        app.get('/admin/guru',checkAdmin,db,routes.Guru.showall);
+        app.get('/admin/guru/add',checkAdmin, function (req,res) {  res.render('guru/new');   });
+        app.post('/admin/guru/:id',checkAdmin,db,routes.Guru.add);
+        app.get('/admin/guru/:id',checkAdmin,db,routes.Guru.show );
+        app.get('/admin/guru/:id/edit',checkAdmin,db,routes.Guru.edit);
+        app.put('/admin/guru/:id',checkAdmin,db,routes.Guru.updates);
+        app.del('/admin/guru/:id',checkAdmin,db,routes.Guru.deletes);
         
 //Guru }
 
 //Users {
-          app.get('/admin/data1',function  (req,res) {
+
+          app.get('/admin/user',checkAdmin,db,routes.Users.showall);
+          app.get('/admin/user/add',checkAdmin, function (req,res) {  res.render('users/new');   });
+          app.get('/admin/user/:id',checkAdmin,db,routes.Users.show);
+          app.get('/admin/user/:id/edit',checkAdmin,db,routes.Users.edit);
+          app.put('/admin/user/:id/edit',checkAdmin,db,routes.Users.updates);
+          app.del('/admin/user/:id',checkAdmin,db,routes.Users.deletes);
+
+//user }
+   
+       app.get('/admin/data1',function  (req,res) {
             models.User.find({}, function(err, docs){
              if(err) res.send("Error user all not found");
              else res.send(docs)
@@ -117,26 +123,6 @@ app.post('/rate:/id',db,routes.Rate.updates);
              else res.send(docs)
             });
           });
-           app.get('/admin/user',db,routes.Users.showall);
-          app.get('/admin/user/:id',function  (req,res) {
-            models.User.findOne({_id : req.params.id},function   (err,doc) {
-              if(err) res.send("Error single user");
-              else res.render("users/user",{User: doc});
-            });
-          });
-          app.get('/admin/user/:id/edit',function   ( req,res) {
-             models.User.findOne({_id : req.params.id},function   ( err,doc) {
-                if(err) res.send("Not found user");
-                else res.render("users/edit",{User: doc});
-             });
-          });
-          app.put('/admin/user/:id/edit',db,routes.Users.updates);
-
-          app.del('/admin/user/:id',function   ( req,res){
-            res.send("User Deleted");
-          });
-
-//user }
 
 //server 
 http.createServer(app).listen(app.get('port'), function(){
