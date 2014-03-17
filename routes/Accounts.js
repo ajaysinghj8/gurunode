@@ -39,12 +39,12 @@ exports.login = function(req, res, next) {
             req.session.auth = true;
             req.session.UserId = User._id.toHexString();
             req.session.User = User;
-            //if (User.admin) 
+            if (User.admin) 
             req.session.admin = true;
         
             console.info('Login USER: ' + req.session.UserId);
             res.json(200, { msg: 'Authorized' });
-            
+
       } else {
         next(new Error('User is not found.'));
       }
