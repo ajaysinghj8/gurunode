@@ -27,10 +27,10 @@ exports.updates = function   ( req,res,next) {
                                       ,  regno : b.regno                    
                                       ,  email: b.email                                      
                                       ,  image: b.image
-                                      ,  updated: Date.now
+                                      ,  updated: new Date()
                                        
 },{new : true},   function   (err,doc) {
-       if(err) res.send("error updating user");
+       if(err) res.send("error updating user"+err);
        else res.send("user Updated" + doc);
     });
  };
