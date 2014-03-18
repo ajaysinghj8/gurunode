@@ -40,7 +40,10 @@ app.configure(function   ( ) {
 var dbUrl_heroku = 'mongodb://un7dc6e19lae6age:94e83b20eed64b6581d1c89b4ef762af@bvisf9dkf0h3ukn9.mongo.clvrcld.net:27017/bvisf9dkf0h3ukn9';
 //var dbUrl_local = 'mongodb://127.0.0.1:27017/rmmp';
 var mongoose = require('mongoose');
-mongoose.connect(dbUrl_heroku);
+mongoose.connect(dbUrl_heroku, function  (err) {
+  if (err) console.log('unable to connect to database');
+  
+});
 /*var connection = mongoose.createConnection(dbUrl);
 connection.on('error', console.error.bind(console, 'connection error:'));
 connection.once('open', function () {
@@ -63,6 +66,7 @@ checkAdmin = routes.Accounts.checkAdmin;
 checkApplicant = routes.Accounts.checkApplicant;
 
 //Website
+
 app.get('/',db,routes.Home.main);
 app.get('/profile/:id',db,routes.Profile.show);
 app.post('/profile/comment/:id/like',db,routes.Profile.like);
