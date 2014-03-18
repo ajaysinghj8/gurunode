@@ -37,10 +37,10 @@ app.configure(function   ( ) {
 });
 
 //database mongodb
-//mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
-var dbUrl = 'mongodb://un7dc6e19lae6age:94e83b20eed64b6581d1c89b4ef762af@bvisf9dkf0h3ukn9.mongo.clvrcld.net:27017/bvisf9dkf0h3ukn9';
+var dbUrl_heroku = 'mongodb://un7dc6e19lae6age:94e83b20eed64b6581d1c89b4ef762af@bvisf9dkf0h3ukn9.mongo.clvrcld.net:27017/bvisf9dkf0h3ukn9';
+//var dbUrl_local = 'mongodb://127.0.0.1:27017/rmmp';
 var mongoose = require('mongoose');
-mongoose.connect(dbUrl);
+mongoose.connect(dbUrl_heroku);
 /*var connection = mongoose.createConnection(dbUrl);
 connection.on('error', console.error.bind(console, 'connection error:'));
 connection.once('open', function () {
@@ -104,6 +104,7 @@ app.post('/rate:/id',db,routes.Rate.updates);
 
           app.get('/admin/user',checkAdmin,db,routes.Users.showall);
           app.get('/admin/user/add',checkAdmin, function (req,res) {  res.render('users/new');   });
+          app.post('/admin/user/add',checkAdmin,db,routes.Users.add);
           app.get('/admin/user/:id',checkAdmin,db,routes.Users.show);
           app.get('/admin/user/:id/edit',checkAdmin,db,routes.Users.edit);
           app.put('/admin/user/:id/edit',checkAdmin,db,routes.Users.updates);

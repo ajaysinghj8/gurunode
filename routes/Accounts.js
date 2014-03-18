@@ -27,8 +27,8 @@ exports.checkApplicant = function(req, res, next) {
 
 exports.login = function(req, res, next) {
   req.db.User.findOne({
-      regno : req.body.userName,
-      password: req.body.userPassword
+      regno : req.body.regno,
+      password: req.body.password
     },
     null, {
       safe: true

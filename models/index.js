@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CommentsSchema = new Schema({
-	  text: { type: String, trim: true,max:2000}
+	  user_id: { type: Schema.Types.ObjectId, ref: 'User' }
+  , text: { type: String, trim: true,max:2000}
   , guruid: { type: Schema.Types.ObjectId, ref: 'Guru' }
   , created_at : { type : Date, default : Date.now }
   , enable     : { type : Boolean, default : true }

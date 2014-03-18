@@ -9,7 +9,8 @@ exports.show = function   (req,res,next) {
 };
 exports.comments = function   ( req,res,next) {
 	 new req.db.Comments({ text : req.body.commentText
-	                    ,guruid:  req.params.id                            
+	                    ,guruid:  req.params.id    
+	                    ,user_id: req.session.UserId                         
                         }).save(function  (err,doc){
 	                                                 	 if(err)res.send(err);
 	                                             

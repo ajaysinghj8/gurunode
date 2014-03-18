@@ -4,9 +4,9 @@
 exports.add = function(req, res, next) {
  
   var newuser = new req.db.User({
-  	displayName : "Guest",
-    regno : req.body.userName,
-  	password : req.body.userPassword
+  	displayName : req.body.name? req.body.name :"Guest",
+    regno : req.body.regno,
+  	password : req.body.password
   });
   newuser.save(function(err,doc) {
     if (err) next(err);
