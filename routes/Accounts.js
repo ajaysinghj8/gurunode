@@ -44,6 +44,7 @@ exports.login = function(req, res, next) {
         
             console.info('Login USER: ' + req.session.UserId);
             res.json(200, { msg: 'Authorized' });
+            res.redirect('/');
 
       } else {
         next(new Error('User is not found.'));
