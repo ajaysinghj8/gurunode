@@ -67,11 +67,11 @@ checkApplicant = routes.Accounts.checkApplicant;
 
 //Website
 
-app.get('/',db,routes.Home.main);
-app.get('/profile/:id',db,routes.Profile.show);
-app.post('/profile/comment/:id/like',db,routes.Profile.like);
-app.post('/profile/comment/:id/dislike',db,routes.Profile.dislike);
-app.post('/profile/comment/:id',checkUser,db,routes.Profile.comments);
+app.get('/',db,routes.PageData.main);
+app.get('/profile/:id',db,routes.PageData.show);
+app.post('/profile/comment/:id/like',db,routes.PageData.like);
+app.post('/profile/comment/:id/dislike',db,routes.PageData.dislike);
+app.post('/profile/comment/:id',checkUser,db,routes.PageData.comments);
 app.get('/rate/:id',db,routes.Rate.show);
 app.get('/report/:id',db,routes.Report.show);
 app.post('/rate:/id',db,routes.Rate.updates);

@@ -1,5 +1,15 @@
 
- objectId = require('mongodb').ObjectID;
+/*
+
+functionalities Defined In this Model
+  
+  add -  (new user inserted ) 
+  show - (showing an user based on req.param.id)
+  showall - (show all users)
+  edit - (editing an user based on id)
+  updates - (updating an user based on id)
+  deletes - (deleting an user based on id)
+  */
 
 exports.add = function(req, res, next) {
  

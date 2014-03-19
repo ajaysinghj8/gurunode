@@ -1,3 +1,15 @@
+/*
+
+functionalities Defined In this Model
+  
+  add -  (new guru inserted ) 
+  show - (showing a guru based on req.param.id)
+  showall - (show all guru)
+  edit - (editing a guru based on id)
+  updates - (updating a guru based on id)
+  deletes - (deleting a guru based on id)
+  */
+
  exports.add = function (req,res,next){
  	var b = req.body;
  	var newGuru = new req.db.Guru({
