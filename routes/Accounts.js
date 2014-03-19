@@ -54,7 +54,7 @@ exports.login = function(req, res, next) {
             req.session.User = User;
             if (User.admin) 
                {req.session.admin = true;
-                console.info('Login Admin: ' + reg.session.UserId +"-"+ req.session.User.displayName);
+                console.info('Login Admin: ' + req.session.UserId +"-"+ req.session.User.displayName);
                 res.json(200, { msg: 'Authorized' });
                 res.redirect('/admin');
                 }
