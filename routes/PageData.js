@@ -2,7 +2,7 @@
 
 functionalities Defined In this Model
 
- main - (data required by home page [4 random guru,])
+ home - (data required by home page [4 random guru,])
  show - (shows a guru ,with comments)
  comments - (saving commnets posted by users)
  ..like -
@@ -10,19 +10,19 @@ functionalities Defined In this Model
 */
 
 
+exports.home  = function  (req,res) {
+	                                 req.db.Guru.find({},null,
+		                                               { sort: { created_at : -1 },limit : 4},
+		                                                     function   ( err,docs) {
+	                                                       if (err)
+	                                                         res.send("error home routes");
+	                                                        else
+	  	                                                    res.render('index',{req:req,Guru : docs});
+	  		                                             });
+
+};
 
 
-exports.main  = function  (req,res) {
-	req.db.Guru.find({},null,
-		          { sort: { created_at : -1 },limit : 4},
-		             function   ( err,docs) {
-	                           if (err)
-	                                 res.send("error home routes");
-	                            else
-	  	                      res.render('index',{req:req,Guru : docs});
-	  		});
-
-)};
 
 exports.show = function   (req,res,next) {
 	 req.db.Guru.findOne({_id :req.params.id},function ( err,doc1) {

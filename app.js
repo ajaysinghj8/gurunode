@@ -67,7 +67,7 @@ checkApplicant = routes.Accounts.checkApplicant;
 
 //Website
 
-app.get('/',db,routes.PageData.main);
+app.get('/',db,routes.PageData.home);
 app.get('/profile/:id',db,routes.PageData.show);
 app.post('/profile/comment/:id/like',db,routes.PageData.like);
 app.post('/profile/comment/:id/dislike',db,routes.PageData.dislike);
