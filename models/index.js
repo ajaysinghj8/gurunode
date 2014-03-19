@@ -2,12 +2,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CommentsSchema = new Schema({
-	  user_id: { type: Schema.Types.ObjectId, ref: 'users' }
+	  _uid: { type: Schema.Types.ObjectId, ref: 'User' }
   , text: { type: String, trim: true,max:2000}
-  , guruid: { type: Schema.Types.ObjectId, ref: 'Guru' }
+  , _gid: { type: Schema.Types.ObjectId, ref: 'Guru' }
   , created_at : { type : Date, default : Date.now }
   , enable     : { type : Boolean, default : true }
-  , likes: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+  , _likes: [{ type: Schema.Types.ObjectId, ref: 'User' }]
   , own: Boolean
   , like: Boolean
   , admin: Boolean
