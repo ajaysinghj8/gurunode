@@ -13,12 +13,16 @@ functionalities Defined In this Model
 
 
 exports.main  = function  (req,res) {
-	req.db.Guru.find({},null,{ sort: { created_at : -1 },limit : 4},function   ( err,docs) {
-	  if (err) res.send("error home routes");
-	  else
-	  	res.render('index',{req:req,Guru : docs});
+	req.db.Guru.find({},null,
+		          { sort: { created_at : -1 },limit : 4},
+		             function   ( err,docs) {
+	                           if (err)
+	                                 res.send("error home routes");
+	                            else
+	  	                      res.render('index',{req:req,Guru : docs});
 	  		});
 
+)};
 
 exports.show = function   (req,res,next) {
 	 req.db.Guru.findOne({_id :req.params.id},function ( err,doc1) {
