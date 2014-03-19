@@ -128,6 +128,12 @@ app.post('/rate:/id',db,routes.Rate.updates);
              else res.send(docs)
             });
           });
+           app.get('/admin/data3',function  (req,res) {
+            models.Comments.findOne({}).populate('_uid','displayName').exec( function(err, docs){
+             if(err) res.send("Error");
+             else res.send(docs)
+            });
+          });
 
 //server 
 http.createServer(app).listen(app.get('port'), function(){

@@ -1,6 +1,6 @@
 exports.show = function   (req,res,next) {
 	 req.db.Guru.findOne({_id :req.params.id},function ( err,doc1) {
-            req.db.Comments.find({guruid : req.params.id},function   ( err,doc2) {
+            req.db.Comments.find({_gid : req.params.id}).populate('_uid','displayName','regno').exec(function   ( err,doc2) {
 	 	   if (err) res.send("error show profile routes");
 	 	   else  res.render('profile',{req : req , Guru : doc1 ,Comments : doc2});
 	 	      
